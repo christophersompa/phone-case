@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div style="height: 241px">
             <asp:Label ID="lblCustomer" runat="server" style="z-index: 1; left: 10px; top: 15px; position: absolute" Text="Customer Number"></asp:Label>
-            <asp:TextBox ID="txtCustomerNo" runat="server" style="z-index: 1; left: 134px; top: 13px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerNo" runat="server" style="z-index: 1; left: 134px; top: 13px; position: absolute" OnTextChanged="txtCustomerNo_TextChanged"></asp:TextBox>
             
             <asp:Label ID="lblAddress" runat="server" style="z-index: 1; left: 10px; top: 105px; position: absolute" Text="Address" width="113px"></asp:Label>
             <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 134px; top: 105px; position: absolute"></asp:TextBox>
