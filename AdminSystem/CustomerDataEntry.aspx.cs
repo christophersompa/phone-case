@@ -17,11 +17,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
+        
         //capture the customer no
-        AnCustomer.CustomerNo = Int32.Parse(txtCustomerNo.Text);
+        AnCustomer.CustomerNo = int.Parse(txtCustomerNo.Text);
+        
         //store the customer in the session object
         Session["AnCustomer"] = AnCustomer;
+        
         //navigate to the viewer page
         Response.Redirect("CustomerViewer.aspx");
+    }
+
+    protected void txtCustomerNo_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
