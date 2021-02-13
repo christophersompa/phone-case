@@ -24,9 +24,9 @@ namespace Testing5
             //create test data to assign to the Supply
             Boolean TestData = true;
             //assign the data to the Supply 
-            AnSupply.Active = TestData;
+            AnSupply.AvaliableStock = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnSupply.Active, TestData);
+            Assert.AreEqual(AnSupply.AvaliableStock, TestData);
         }
 
         [TestMethod]
@@ -94,5 +94,155 @@ namespace Testing5
             //test to see that the two values are the same 
             Assert.AreEqual(AnSupply.SupplierName, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //Boolean variable to store the results of the validation 
+            Boolean Found = false;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestPhoneCaseIdFound()
+        {
+            //create an instance of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the Phone Case Id 
+            if (AnSupply.PhoneCaseId != 27)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestPhoneModelFound()
+        {
+            //create an instnace of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the supply 
+            if (AnSupply.PhoneModel != "Samsung Galaxy Note 20")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestDateOrderedFound()
+        {
+            //create an instnace of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the supply 
+            if (AnSupply.DateOrdered != Convert.ToDateTime("27/05/2020"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSupplierNameFound()
+        {
+            //create an instnace of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the supply 
+            if (AnSupply.SupplierName != "Anker")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            //create an instnace of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the supply 
+            if (AnSupply.Price != 19.99M)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAvaliableStockFound()
+        {
+            //create an instnace of the class we want to create 
+            clsSupply AnSupply = new clsSupply();
+            //boolean variable to store the result of the search 
+            Boolean Found = false;
+            //boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PhoneCaseId = 27;
+            //invoke the method 
+            Found = AnSupply.Find(PhoneCaseId);
+            //check the supply 
+            if (AnSupply.AvaliableStock != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct 
+            Assert.IsTrue(OK);
+        }
+
     }
 }
