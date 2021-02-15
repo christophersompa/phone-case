@@ -109,16 +109,35 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
-            //set the private dat members to the test data value 
-            mCustomerNo = 21;
-            mDateOfBirth = Convert.ToDateTime("01/01/2001");
-            mFirstName = "tstFirstName";
-            mSurname = "tstSurname";
-            mAddress = "tstAddress";
-            mOver18 = true;
-            
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //add the parameter for the address no to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //data
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
+                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18?"]);
+                //return that everything worked OK
+                return true;
+            }
+
+            else
+            {
+                //return false indicating a problem
+                return false; 
+            }
+           
         }
 
     }
