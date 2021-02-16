@@ -2,5 +2,13 @@
 {
     public class clsProduct
     {
+        public int ProductId;
+        public string SmartPhoneBrand;
+        public string SmartPhoneModel;
+        public string ProductName;
+        public decimal Price;
+        public int StockLevel;
+        public int ReOrderLevel;
+        public bool Active;
     }
 }
