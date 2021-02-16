@@ -21,6 +21,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture the customer no
         AnCustomer.CustomerNo = int.Parse(txtCustomerNo.Text);
         
+        //capture the first name
+        AnCustomer.FirstName = txtFirstName.Text;
+        
+        //capture the surname
+        AnCustomer.Surname = txtSurname.Text;
+
+        //capture the address
+        AnCustomer.Address = txtAddress.Text;
+        
+        //capture the date of birth 
+        AnCustomer.DateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
+ 
         //store the customer in the session object
         Session["AnCustomer"] = AnCustomer;
         
