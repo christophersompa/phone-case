@@ -28,16 +28,16 @@ namespace Testing3
             Assert.AreEqual(AnStaff.Available, TestData);
         }
         [TestMethod]
-        public void DOBPropertyOK()
+        public void DateOfBirthPropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign data to the property
-            AnStaff.D_O_B = TestData;
+            AnStaff.DoB = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnStaff.D_O_B, TestData);
+            Assert.AreEqual(AnStaff.DoB, TestData);
         }
         [TestMethod]
         public void StaffIdPropertyOK()
@@ -52,40 +52,16 @@ namespace Testing3
             Assert.AreEqual(AnStaff.StaffId, TestData);
         }
         [TestMethod]
-        public void FirstNamePropertyOK()
+        public void NamePropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "Joe";
+            string TestData = "Joe Smith";
             //assign the data to the property
-            AnStaff.FirstName = TestData;
+            AnStaff.Name = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnStaff.FirstName, TestData);
-        }
-        [TestMethod]
-        public void FamilyNamePropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
-            string TestData = "Smith";
-            //assign the data to the property
-            AnStaff.FamilyName = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnStaff.FamilyName, TestData);
-        }
-        [TestMethod]
-        public void HouseNoPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
-            string TestData = "Flat 10";
-            //assign the data to the property
-            AnStaff.HouseNo = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnStaff.HouseNo, TestData);
+            Assert.AreEqual(AnStaff.Name, TestData);
         }
         [TestMethod]
         public void PostCodePropertyOK()
@@ -100,16 +76,16 @@ namespace Testing3
             Assert.AreEqual(AnStaff.PostCode, TestData);
         }
         [TestMethod]
-        public void StreetNamePropertyOK()
+        public void AddressPropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "Green Street";
+            string TestData = "12 Green Street";
             //assign the data to the property
-            AnStaff.StreetName = TestData;
+            AnStaff.Address = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnStaff.StreetName, TestData);
+            Assert.AreEqual(AnStaff.Address, TestData);
         }
     }
-    }
+}
