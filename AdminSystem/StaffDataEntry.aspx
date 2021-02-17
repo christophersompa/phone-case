@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #form1 {
+            height: 495px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -15,7 +20,7 @@
         <asp:Label runat="server" style="z-index: 1; left: 150px; top: 217px; position: absolute; right: 1400px;" Text="Address" ID="lblAddress"></asp:Label>
         <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 150px; top: 251px; position: absolute; width:150px;"></asp:TextBox>
         <asp:Label ID="lblPostCode" runat="server" style="z-index: 1; left: 150px; top: 290px; position: absolute" Text="Post Code" width="93px"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 150px; top: 325px; position: absolute; width: 150px;"></asp:TextBox>
+        <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 150px; top: 325px; position: absolute; width: 150px;"></asp:TextBox>
         <asp:Label ID="lblDoB" runat="server" style="z-index: 1; left: 150px; top: 365px; position: absolute" Text="Date of Birth" width="93px"></asp:Label>
         <asp:TextBox ID="txtDoB" runat="server" style="z-index: 1; left: 150px; top: 398px; position: absolute; width: 150px;"></asp:TextBox>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 150px; top: 438px; position: absolute; right: 1359px;" Text=" Available" />

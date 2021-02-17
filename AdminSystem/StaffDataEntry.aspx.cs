@@ -17,9 +17,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
-        //capture the Address
+        //capture the address
         AnStaff.Address = txtAddress.Text;
-        //store the address in the session object
+        //capture the availability
+        AnStaff.Available = chkAvailable.AutoPostBack;
+        //capture the date of birth
+        AnStaff.DoB = DateTime.Parse(txtDoB.Text);
+        //capture the name
+        AnStaff.Name = txtName.Text;
+        //capture the post code
+        AnStaff.PostCode = txtPostCode.Text;
+        //capture the staff id
+        AnStaff.StaffId = int.Parse(txtStaffId.Text);
+        //store the data in the session object
         Session["AnStaff"] = AnStaff;
         //navigate to the viewer page
         Response.Redirect("StaffViewer.aspx");
