@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System;
+
+namespace ClassLibrary
 {
     public class clsProduct
     {
@@ -10,5 +12,10 @@
         public int StockLevel;
         public int ReOrderLevel;
         public bool Active;
+
+        public bool Find(int productId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
