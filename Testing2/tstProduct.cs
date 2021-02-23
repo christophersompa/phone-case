@@ -18,7 +18,7 @@ namespace Testing2
         public void ProductIdOK()
         {
             clsProduct AnProduct = new clsProduct();
-            Int32 TestData = 00001;
+            Int32 TestData = 1111;
             AnProduct.ProductId = TestData;
             Assert.AreEqual(AnProduct.ProductId, TestData);
         }
@@ -85,7 +85,137 @@ namespace Testing2
             AnProduct.Active = TestData;
             Assert.AreEqual(AnProduct.Active, TestData);
         }
-           
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestProductIdFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.ProductId != 1111)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSmartPhoneBrandFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.SmartPhoneBrand != "Samsung")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSmartPhoneModelFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.SmartPhoneModel != "Galaxy Note 10 plus")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.ProductName != "Black Case")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.Price != 15.35M)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStockLevelFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.StockLevel != 128)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestReOrderLevelFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.ReOrderLevel != 20)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1111;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.Active != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
 
     }
 }
