@@ -44,4 +44,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer class
+        clsCustomer AnCustomer = new clsCustomer();
+
+        //variable to store the primary key
+        Int32 CustomerNo;
+
+        //variable to store the result of the find operation 
+        Boolean Found = false;
+
+        //get the primary key entered by the user
+        CustomerNo = Convert.ToInt32(txtCustomerNo.Text);
+
+        //find record
+        Found = AnCustomer.Find(CustomerNo);
+
+        //if found
+        if (Found == true)
+        {
+            //display the value of the properties in the form 
+            txtFirstName.Text = AnCustomer.FirstName;
+            txtSurname.Text = AnCustomer.Surname;
+            txtAddress.Text = AnCustomer.Address;
+            txtDateOfBirth.Text = AnCustomer.DateOfBirth.ToString();
+        }
+    }
 }
