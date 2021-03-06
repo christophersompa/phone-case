@@ -78,15 +78,32 @@ namespace ClassLibrary
         }
         public bool Find(int staffId)
         {
-            //set the private data members to each test data value
-            mStaffId = 1234;
-            mName = "John Smith";
-            mPostCode = "LE1 7XY";
-            mAddress = "21 Green Street";
-            mDoB = Convert.ToDateTime("12/03/1995");
-            mAvailable = true;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the Staff Id to search for
+            DB.AddParameter("@StaffId", StaffId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffId");
+            //if one record is found (there should be either one of zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mDoB = Convert.ToDateTime(DB.DataTable.Rows[0]["DoB"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                //always return true
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+            
         }
     }
 }

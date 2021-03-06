@@ -34,4 +34,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //navigate to the viewer page
         Response.Redirect("StaffViewer.aspx");
     }
+
+
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address class
+        clsStaff AnStaff = new clsStaff();
+        //variable to store the primary key
+        Int32 StaffId;
+        //varibale to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+        //find the record
+        Found = AnStaff.Find(StaffId);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtName.Text = AnStaff.Name;
+            txtAddress.Text = AnStaff.Address;
+            txtPostCode.Text = AnStaff.PostCode;
+            txtDoB.Text = AnStaff.DoB.ToString();
+        }
+    }
 }
