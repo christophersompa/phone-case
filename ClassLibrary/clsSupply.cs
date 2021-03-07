@@ -121,16 +121,33 @@ namespace ClassLibrary
 
         public bool Find(int PhoneCaseId)
         {
-            //set the private data members to the test data value 
-            mPhoneCaseId = 27;
-            mPhoneModel = "Samsung Galaxy Note 20";
-            mDateOrdered = Convert.ToDateTime("27/05/2020");
-            mSupplierName = "Anker";
-            mPrice = 19.99M;
-            mAvaliableStock = true;
-       
-            //always return true 
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the PhoneCaseId to search for 
+            DB.AddParameter("@PhoneCaseId", PhoneCaseId);
+            //execute the store procedure 
+            DB.Execute("sproc_tblSupply_FilterByPhoneCaseId");
+            //if one record is found (there should either be one or zero!)
+            if (DB.Count == 1)
+            {
+                // copy the data from the database to the private data members 
+                mPhoneCaseId = Convert.ToInt32(DB.DataTable.Rows[0]["PhoneCaseId"]);
+                mPhoneModel = Convert.ToString(DB.DataTable.Rows[0]["PhoneModel"]);
+                mDateOrdered = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOrdered"]);
+                mSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mAvaliableStock = Convert.ToBoolean(DB.DataTable.Rows[0]["AvaliableStock"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found 
+            else
+            {
+
+                //return false indicating a problem 
+                return false;
+            }
+
         }
 
 
@@ -143,7 +160,7 @@ namespace ClassLibrary
 
 
 
-        
+
 
 
     }
