@@ -102,9 +102,9 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
-            if (AnProduct.ProductId != 1111)
+            if (AnProduct.ProductId != 1)
             {
                 OK = false;
             }
@@ -117,9 +117,9 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
-            if (AnProduct.SmartPhoneBrand != "Samsung")
+            if (AnProduct.SmartPhoneBrand != "Apple")
             {
                 OK = false;
             }
@@ -132,9 +132,9 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
-            if (AnProduct.SmartPhoneModel != "Galaxy Note 10 plus")
+            if (AnProduct.SmartPhoneModel != "iPhone 12 Pro")
             {
                 OK = false;
             }
@@ -147,7 +147,7 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
             if (AnProduct.ProductName != "Black Case")
             {
@@ -162,9 +162,9 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
-            if (AnProduct.Price != 15.35M)
+            if (AnProduct.Price != 16M)
             {
                 OK = false;
             }
@@ -177,7 +177,7 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
             if (AnProduct.StockLevel != 128)
             {
@@ -192,9 +192,9 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
-            if (AnProduct.ReOrderLevel != 20)
+            if (AnProduct.ReOrderLevel != 12)
             {
                 OK = false;
             }
@@ -207,7 +207,7 @@ namespace Testing2
             clsProduct AnProduct = new clsProduct();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ProductId = 1111;
+            Int32 ProductId = 1;
             Found = AnProduct.Find(ProductId);
             if (AnProduct.Active != true)
             {
@@ -215,7 +215,6 @@ namespace Testing2
             }
             Assert.IsTrue(OK);
         }
-
 
     }
 }
