@@ -48,7 +48,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 5;
             //assign the data to the property
             AnOrder.OrderNo = TestData;
             //test to see that the two values are the same
@@ -60,7 +60,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 24;
             //assign the data to the property
             AnOrder.TrackingNo = TestData;
             //test to see that the two values are the same
@@ -72,7 +72,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "Kobe Mamba";
+            string TestData = "Test Name";
             //assign the data to the property
             AnOrder.CustomerName = TestData;
             //test to see that the two values are the same
@@ -84,7 +84,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "kobemamba@yahoo.com";
+            string TestData = "testemail@hotmail.com";
             //assign the data to the property
             AnOrder.CustomerEmail = TestData;
             //test to see that the two values are the same
@@ -96,7 +96,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 8;
             //assign the data to the property
             AnOrder.ProductNo = TestData;
             //test to see that the two values are the same
@@ -120,7 +120,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 15;
             //assign the data to the property
             AnOrder.TotalPrice = TestData;
             //test to see that the two values are the same
@@ -134,7 +134,7 @@ namespace Testing4
             //Boolean variable to store the results of the validation 
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //test to see that the result is correct
@@ -150,11 +150,11 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no 
-            if (AnOrder.OrderNo !=24)
+            if (AnOrder.OrderNo !=5)
             {
                 OK = false;
             }
@@ -171,11 +171,11 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no 
-            if (AnOrder.ProductNo != 24)
+            if (AnOrder.ProductNo != 8)
             {
                 OK = false;
             }
@@ -193,11 +193,11 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no 
-            if (AnOrder.Quantity != 24)
+            if (AnOrder.Quantity != 1)
             {
                 OK = false;
             }
@@ -215,11 +215,11 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no 
-            if (AnOrder.TotalPrice != 24)
+            if (AnOrder.TotalPrice != 15)
             {
                 OK = false;
             }
@@ -237,7 +237,7 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no 
@@ -259,7 +259,7 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
@@ -281,7 +281,7 @@ namespace Testing4
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 24;
+            Int32 OrderNo = 5;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property

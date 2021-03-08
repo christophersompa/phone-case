@@ -11,14 +11,14 @@ namespace ClassLibrary
         //private data member for dispatched
         private Boolean mDispatched;
         //public property for dispatched
-        public bool Dispatched 
+        public bool Dispatched
         {
-            get 
+            get
             {
                 //return the private data
                 return mDispatched;
             }
-            set 
+            set
             {
                 //set the private data
                 mDispatched = value;
@@ -28,7 +28,7 @@ namespace ClassLibrary
         //private date added data member
         private DateTime mOrderDate;
         //public property for date added
-        public DateTime OrderDate 
+        public DateTime OrderDate
         {
             get
             {
@@ -45,14 +45,14 @@ namespace ClassLibrary
         //private data member for the OrderNo property
         private Int32 mOrderNo;
         //public property for the order number
-        public int OrderNo 
+        public int OrderNo
         {
-            get 
+            get
             {
                 //return the private data
                 return mOrderNo;
             }
-            set 
+            set
             {
                 //set the value of the private data member
                 mOrderNo = value;
@@ -62,14 +62,14 @@ namespace ClassLibrary
         //private data member for tracking no
         private Int32 mTrackingNo;
         //public property for tracking no
-        public int TrackingNo 
+        public int TrackingNo
         {
-            get 
+            get
             {
                 //return the private data
                 return mTrackingNo;
             }
-            set 
+            set
             {
                 //set the private data
                 mTrackingNo = value;
@@ -79,14 +79,14 @@ namespace ClassLibrary
         //private data member for CustomerName
         private string mCustomerName;
         //public property for custmomer name
-        public string CustomerName 
+        public string CustomerName
         {
-            get 
+            get
             {
                 //return private data
                 return mCustomerName;
             }
-            set 
+            set
             {
                 //set the private data
                 mCustomerName = value;
@@ -96,14 +96,14 @@ namespace ClassLibrary
         //private data member for customer email
         private string mCustomerEmail;
         //public property for customer email
-        public string CustomerEmail 
+        public string CustomerEmail
         {
-            get 
+            get
             {
                 //return the private data
                 return mCustomerEmail;
             }
-            set 
+            set
             {
                 //set the private data
                 mCustomerEmail = value;
@@ -115,16 +115,16 @@ namespace ClassLibrary
         //public data member for product number
         public int ProductNo
         {
-            get 
+            get
             {
                 //return the private data
                 return mProductNo;
             }
-            set 
+            set
             {
                 //set the private data
                 mProductNo = value;
-            } 
+            }
         }
 
         //private data member for quantity
@@ -132,12 +132,12 @@ namespace ClassLibrary
         //public data member for Quantity
         public int Quantity
         {
-            get 
+            get
             {
                 //return the private data
                 return mQuantity;
             }
-            set 
+            set
             {
                 //set the private data
                 mQuantity = value;
@@ -164,17 +164,35 @@ namespace ClassLibrary
 
         public bool Find(int OrderNo)
         {
-            //set the private data members to the test data value
-            mOrderNo = 24;
-            mCustomerName = "Kobe";
-            mCustomerEmail = "kobemamba@yahoo.com";
-            mProductNo = 8;
-            mQuantity = 1;
-            mTotalPrice = 1;
-            mOrderDate = Convert.ToDateTime("16/9/2015");
-            mDispatched = true;
-            //always return true
-            return true;
+            //create an instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the order no to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                mProductNo = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNo"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mTotalPrice = Convert.ToInt32(DB.DataTable.Rows[0]["TotalPrice"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mDispatched = Convert.ToBoolean(DB.DataTable.Rows[0]["Dispatched"]);
+                //return that everything worked OK                      
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
-}
+} 
+    
+
