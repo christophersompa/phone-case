@@ -16,51 +16,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
-        clsCustomer AnCustomer = new clsCustomer();     
+        clsCustomer AnCustomer = new clsCustomer();
+        
+        //capture the customer no
+        AnCustomer.CustomerNo = int.Parse(txtCustomerNo.Text);
         
         //capture the first name
-        string FirstName = txtFirstName.Text;
+        AnCustomer.FirstName = txtFirstName.Text;
         
         //capture the surname
-        string Surname = txtSurname.Text;
+        AnCustomer.Surname = txtSurname.Text;
 
         //capture the address
-        string Address = txtAddress.Text;
+        AnCustomer.Address = txtAddress.Text;
         
         //capture the date of birth 
-        string DateOfBirth = txtDateOfBirth.Text;
-
-        //variable to store any error messages
-        string Error = "";
-
-        //validate the data
-        Error = AnCustomer.Valid(FirstName, Surname, Address, DateOfBirth);
-        if (Error == "")
-        {
-            //capture the first name
-            AnCustomer.FirstName = FirstName;
-
-            //capture the surname
-            AnCustomer.Surname = Surname;
-
-            //capture the address
-            AnCustomer.Address = Address;
-
-            //capture the date of birth
-            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+        AnCustomer.DateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
+ 
+        //store the customer in the session object
+        Session["AnCustomer"] = AnCustomer;
         
-            //store the customer in the session object
-            Session["AnCustomer"] = AnCustomer;
-        
-            //navigate to the viewer page
-            Response.Redirect("CustomerViewer.aspx");
-        }
-        else
-        {
-            //display the error message
-            lblError.Text = Error;
-        }
-        
+        //navigate to the viewer page
+        Response.Redirect("CustomerViewer.aspx");
     }
 
     protected void txtCustomerNo_TextChanged(object sender, EventArgs e)
