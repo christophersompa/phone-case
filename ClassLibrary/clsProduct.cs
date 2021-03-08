@@ -13,9 +13,27 @@ namespace ClassLibrary
         public int ReOrderLevel;
         public bool Active;
 
-        public bool Find(int productId)
+        public bool Find(int ProductId)
         {
-            throw new NotImplementedException();
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductId", ProductId);
+            DB.Execute("sproc_tblProduct_FilterByProductId");
+            if (DB.Count == 1)
+            {
+                ProductId = Convert.ToInt32(DB.DataTable.Rows[0]["ProductId"]);
+                ProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
+                SmartPhoneBrand = Convert.ToString(DB.DataTable.Rows[0]["SmartPhoneBrand"]);
+                SmartPhoneModel = Convert.ToString(DB.DataTable.Rows[0]["SmartPhoneModel"]);
+                Price = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                Active = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                StockLevel = Convert.ToInt32(DB.DataTable.Rows[0]["StockLevel"]);
+                ReOrderLevel = Convert.ToInt32(DB.DataTable.Rows[0]["ReOrderLevel"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
