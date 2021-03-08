@@ -135,10 +135,88 @@ namespace ClassLibrary
             else
             {
                 //return false indicating a problem
-                return false; 
+                return false;
             }
-           
+
         }
 
+        public string Valid(string firstName, string surname, string address, string dateOfBirth)
+        {
+            //create a string variable to store the error
+            String Error = "";
+
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if the FirstName is blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name cannot be blank : ";
+            }
+            
+            //if the first name is greater than 16 characters
+            if (firstName.Length > 16)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 17 characters :";
+            }
+
+            //if the Surname is blank
+            if (surname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The surname cannot be blank : ";
+            }
+
+            //if the surname is greater than 20 characters
+            if (surname.Length > 20)
+            {
+                //record the error
+                Error = Error + "The surname must be less than 21 :";
+            }
+
+            //if the Address is blank
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The address cannot be blank : ";
+            }
+
+            //if the address is greater than 33 characters
+            if (address.Length > 32)
+            {
+                //record the error
+                Error = Error + "The address must be less than 33 :";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+                if (DateTemp < DateTime.Now.AddYears(-100))
+                {
+                    //record the error
+                    Error = Error + "The date of birth be too far back :";
+                }
+                //check to see if the dtae is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date is not valid :";
+            }
+
+            //return any error messages
+            return Error;
+        }
+
+    
+        
     }
 }
