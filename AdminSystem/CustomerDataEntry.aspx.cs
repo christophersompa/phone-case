@@ -16,28 +16,51 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
-        clsCustomer AnCustomer = new clsCustomer();
-        
-        //capture the customer no
-        AnCustomer.CustomerNo = int.Parse(txtCustomerNo.Text);
+        clsCustomer AnCustomer = new clsCustomer();     
         
         //capture the first name
-        AnCustomer.FirstName = txtFirstName.Text;
+        string FirstName = txtFirstName.Text;
         
         //capture the surname
-        AnCustomer.Surname = txtSurname.Text;
+        string Surname = txtSurname.Text;
 
         //capture the address
-        AnCustomer.Address = txtAddress.Text;
+        string Address = txtAddress.Text;
         
         //capture the date of birth 
-        AnCustomer.DateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
- 
-        //store the customer in the session object
-        Session["AnCustomer"] = AnCustomer;
+        string DateOfBirth = txtDateOfBirth.Text;
+
+        //variable to store any error messages
+        string Error = "";
+
+        //validate the data
+        Error = AnCustomer.Valid(FirstName, Surname, Address, DateOfBirth);
+        if (Error == "")
+        {
+            //capture the first name
+            AnCustomer.FirstName = FirstName;
+
+            //capture the surname
+            AnCustomer.Surname = Surname;
+
+            //capture the address
+            AnCustomer.Address = Address;
+
+            //capture the date of birth
+            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
         
-        //navigate to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
+            //store the customer in the session object
+            Session["AnCustomer"] = AnCustomer;
+        
+            //navigate to the viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+        
     }
 
     protected void txtCustomerNo_TextChanged(object sender, EventArgs e)
