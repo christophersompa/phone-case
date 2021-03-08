@@ -103,7 +103,7 @@ namespace Testing5
             //Boolean variable to store the results of the validation 
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //test to see if the result is true 
@@ -120,11 +120,11 @@ namespace Testing5
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the Phone Case Id 
-            if (AnSupply.PhoneCaseId != 27)
+            if (AnSupply.PhoneCaseId != 1)
             {
                 OK = false;
             }
@@ -143,11 +143,11 @@ namespace Testing5
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
-            if (AnSupply.PhoneModel != "Samsung Galaxy Note 20")
+            if (AnSupply.PhoneModel != "IPhoneXS")
             {
                 OK = false;
             }
@@ -166,11 +166,11 @@ namespace Testing5
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
-            if (AnSupply.DateOrdered != Convert.ToDateTime("27/05/2020"))
+            if (AnSupply.DateOrdered != Convert.ToDateTime("01/03/2021"))
             {
                 OK = false;
             }
@@ -188,11 +188,11 @@ namespace Testing5
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
-            if (AnSupply.SupplierName != "Anker")
+            if (AnSupply.SupplierName != "Spigen")
             {
                 OK = false;
             }
@@ -210,11 +210,11 @@ namespace Testing5
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
-            if (AnSupply.Price != 19.99M)
+            if (AnSupply.Price != 15)
             {
                 OK = false;
             }
@@ -232,7 +232,7 @@ namespace Testing5
             //boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PhoneCaseId = 27;
+            Int32 PhoneCaseId = 1;
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
