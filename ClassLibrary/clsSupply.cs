@@ -21,8 +21,8 @@ namespace ClassLibrary
 
         //private data member for the Avaliable Stock 
         public bool mAvaliableStock;
-        
-        
+
+
         //PhoneCaseId public supply 
         public Int32 PhoneCaseId
         {
@@ -148,8 +148,84 @@ namespace ClassLibrary
                 return false;
             }
 
+
         }
 
+        public string Valid(string phoneModel, string dateOrdered, string supplierName, string price)
+        {
+            //create a string variable to store the error 
+            String Error = "";
+            //create a temporary variable to store the date values
+            DateTime DateTemp;
+            //if the Phone Model is blank
+            if (phoneModel.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The Phone Model may not be blank : ";
+            }
+            //if the Phone Model is greater than 25 charcters 
+            if (phoneModel.Length > 25)
+            {
+                //record the error 
+                Error = Error + "The Phone Model must be less than 25 characters : ";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOrdered);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                //check to see if the date is greater than today's date 
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date was not a valid date : ";
+            }
+            //if the Supplier Name is blank
+            if (supplierName.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The Supplier Name may not be blank : ";
+            }
+            //if the Supplier Name is greater than 25 charcters 
+            if (supplierName.Length > 25)
+            {
+                //record the error 
+                Error = Error + "The Supplier Name must be less than 25 characters : ";
+            }
+
+            //if the Supplier Name is blank
+            if (price.Length == 0)
+            {
+                //record the error 
+                Error = Error + "Price may not be blank : ";
+            }
+            //if the Supplier Name is greater than 25 charcters 
+            if (price.Length > 1000000000)
+            {
+                //record the error 
+                Error = Error + "The Price must be less than £1 Million Pounds : ";
+            }
+
+
+
+
+
+
+            //return any error messages 
+            return Error;
+
+            }
 
 
 
@@ -159,9 +235,5 @@ namespace ClassLibrary
 
 
 
-
-
-
-
+        }
     }
-}
