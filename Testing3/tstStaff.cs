@@ -45,7 +45,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            Int32 TestData = 1234;
+            Int32 TestData = 1;
             //assign the data to the property
             AnStaff.StaffId = TestData;
             //test to see that the two values are the same
@@ -97,7 +97,7 @@ namespace Testing3
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //test to see if the result is true
@@ -114,11 +114,11 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
-            if (AnStaff.StaffId != 1234)
+            if (AnStaff.StaffId != 1)
             {
                 OK = false;
             }
@@ -135,11 +135,11 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
-            if (AnStaff.Name != "John Smith")
+            if (AnStaff.Name != "Joe Smith")
             {
                 OK = false;
             }
@@ -156,7 +156,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
@@ -177,11 +177,11 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
-            if (AnStaff.Address != "21 Green Street")
+            if (AnStaff.Address != "12 Green Street")
             {
                 OK = false;
             }
@@ -219,7 +219,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id

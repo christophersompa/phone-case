@@ -4,6 +4,7 @@ namespace ClassLibrary
 {
     public class clsStaff
     {
+        
         private bool mAvailable;
         public bool Available
         {
@@ -103,7 +104,7 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
-            
+            //
         }
     }
 }

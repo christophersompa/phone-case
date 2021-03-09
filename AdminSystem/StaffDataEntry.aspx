@@ -23,7 +23,7 @@
         <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 150px; top: 325px; position: absolute; width: 150px;"></asp:TextBox>
         <asp:Label ID="lblDoB" runat="server" style="z-index: 1; left: 150px; top: 375px; position: absolute" Text="Date of Birth" width="93px"></asp:Label>
         <asp:TextBox ID="txtDoB" runat="server" style="z-index: 1; left: 150px; top: 400px; position: absolute; width: 150px;"></asp:TextBox>
-        <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 150px; top: 438px; position: absolute; right: 575px;" Text=" Available" />
+        <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 150px; top: 440px; position: absolute; right: 575px;" Text=" Available" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 474px; position: absolute"></asp:Label>
         <asp:Button ID="btnOk" runat="server" style="z-index: 1; left: 370px; top: 100px; position: absolute; width: 100px;" Text="Ok" OnClick="btnOk_Click" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 370px; top: 175px; position: absolute; width: 100px;" Text="Cancel" />

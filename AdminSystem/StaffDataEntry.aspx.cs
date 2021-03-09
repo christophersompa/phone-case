@@ -41,7 +41,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create an instance of the address class
         clsStaff AnStaff = new clsStaff();
-        //variable to store the primary key
+        //variable to store the primary key 
         Int32 StaffId;
         //varibale to store the result of the find operation
         Boolean Found = false;
@@ -58,5 +58,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtPostCode.Text = AnStaff.PostCode;
             txtDoB.Text = AnStaff.DoB.ToString();
         }
+        //
     }
 }
