@@ -9,12 +9,12 @@ namespace ClassLibrary
         private Int32 mCustomerNo;
 
         //dateAdded private member variable
-        private DateTime mDateOfBirth;
+        private DateTime mDateAdded;
 
         //firstName private member variable
         private string mFirstName;
 
-        //surname private member variable 
+        //surname private member variable
         private string mSurname;
 
         //address private member variable
@@ -42,7 +42,7 @@ namespace ClassLibrary
         {
             get
             {
-                //this line of code sends data out of the property 
+                //this line of code sends data out of the property
                 return mFirstName;
             }
             set
@@ -56,7 +56,7 @@ namespace ClassLibrary
         {
             get
             {
-                //this line of code sends data out of the property 
+                //this line of code sends data out of the property
                 return mSurname;
             }
             set
@@ -70,7 +70,7 @@ namespace ClassLibrary
         {
             get
             {
-                //this line of code sends data out of the property 
+                //this line of code sends data out of the property
                 return mAddress;
             }
             set
@@ -79,17 +79,17 @@ namespace ClassLibrary
             }
         }
 
-        //DateOfBirth public property
-        public DateTime DateOfBirth
+        //DateAdded public property
+        public DateTime DateAdded
         {
             get
             {
                 //this line of code sends data out of the property
-                return mDateOfBirth;
+                return mDateAdded;
             }
             set
             {
-                mDateOfBirth = value;
+                mDateAdded = value;
             }
         }
 
@@ -125,8 +125,8 @@ namespace ClassLibrary
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
                 mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
-                mDateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18?"]);
                 //return that everything worked OK
                 return true;
@@ -135,10 +135,88 @@ namespace ClassLibrary
             else
             {
                 //return false indicating a problem
-                return false; 
+                return false;
             }
-           
+
         }
+
+        public string Valid(string firstName, string surname, string address, string dateAdded)
+        {
+            //create a string variable to store the error
+            String Error = "";
+
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if the FirstName is blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name cannot be blank : ";
+            }
+
+            //if the first name is greater than 16 characters
+            if (firstName.Length > 16)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 17 characters :";
+            }
+
+            //if the Surname is blank
+            if (surname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The surname cannot be blank : ";
+            }
+
+            //if the surname is greater than 20 characters
+            if (surname.Length > 20)
+            {
+                //record the error
+                Error = Error + "The surname must be less than 21 :";
+            }
+
+            //if the Address is blank
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The address cannot be blank : ";
+            }
+
+            //if the address is greater than 33 characters
+            if (address.Length > 32)
+            {
+                //record the error
+                Error = Error + "The address must be less than 33 :";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in past :";
+                }
+                //check to see if the dtae is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date is not valid :";
+            }
+
+            //return any error messages
+            return Error;
+        }
+
+
 
     }
 }

@@ -17,27 +17,50 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-        
-        //capture the customer no
-        AnCustomer.CustomerNo = int.Parse(txtCustomerNo.Text);
-        
+
         //capture the first name
-        AnCustomer.FirstName = txtFirstName.Text;
-        
+        string FirstName = txtFirstName.Text;
+
         //capture the surname
-        AnCustomer.Surname = txtSurname.Text;
+        string Surname = txtSurname.Text;
 
         //capture the address
-        AnCustomer.Address = txtAddress.Text;
-        
-        //capture the date of birth 
-        AnCustomer.DateOfBirth = DateTime.Parse(txtDateOfBirth.Text);
- 
-        //store the customer in the session object
-        Session["AnCustomer"] = AnCustomer;
-        
-        //navigate to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
+        string Address = txtAddress.Text;
+
+        //capture the date of birth
+        string DateAdded = txtDateAdded.Text;
+
+        //variable to store any error messages
+        string Error = "";
+
+        //validate the data
+        Error = AnCustomer.Valid(FirstName, Surname, Address, DateAdded);
+        if (Error == "")
+        {
+            //capture the first name
+            AnCustomer.FirstName = FirstName;
+
+            //capture the surname
+            AnCustomer.Surname = Surname;
+
+            //capture the address
+            AnCustomer.Address = Address;
+
+            //capture the date of birth
+            AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
+
+            //store the customer in the session object
+            Session["AnCustomer"] = AnCustomer;
+
+            //navigate to the viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+
     }
 
     protected void txtCustomerNo_TextChanged(object sender, EventArgs e)
@@ -53,7 +76,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //variable to store the primary key
         Int32 CustomerNo;
 
-        //variable to store the result of the find operation 
+        //variable to store the result of the find operation
         Boolean Found = false;
 
         //get the primary key entered by the user
@@ -65,11 +88,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //if found
         if (Found == true)
         {
-            //display the value of the properties in the form 
+            //display the value of the properties in the form
             txtFirstName.Text = AnCustomer.FirstName;
             txtSurname.Text = AnCustomer.Surname;
             txtAddress.Text = AnCustomer.Address;
-            txtDateOfBirth.Text = AnCustomer.DateOfBirth.ToString();
+            txtDateAdded.Text = AnCustomer.DateAdded.ToString();
         }
     }
 }
