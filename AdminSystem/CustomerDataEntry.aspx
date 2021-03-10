@@ -15,7 +15,7 @@
             <asp:Label ID="lblAddress" runat="server" style="z-index: 1; left: 10px; top: 105px; position: absolute" Text="Address" width="113px"></asp:Label>
             <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 134px; top: 105px; position: absolute"></asp:TextBox>
             
-            <asp:Label ID="lblDateOfBirth" runat="server" style="z-index: 1; left: 10px; top: 140px; position: absolute" Text="Date Of Birth" width="113px"></asp:Label>
+            <asp:Label ID="lblDateAdded" runat="server" style="z-index: 1; left: 10px; top: 140px; position: absolute" Text="Date Added" width="113px"></asp:Label>
         
             <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 10px; top: 40px; position: absolute; bottom: 512px" Text="First Name" width="113px"></asp:Label>
             <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 134px; top: 40px; position: absolute"></asp:TextBox>
@@ -25,7 +25,7 @@
 
             <asp:CheckBox ID="chkOver18" runat="server" style="z-index: 1; left: 10px; top: 170px; position: absolute" Text="Over 18?" />
 
-            <asp:TextBox ID="txtDateOfBirth" runat="server" style="z-index: 1; left: 134px; top: 140px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 134px; top: 140px; position: absolute"></asp:TextBox>
 
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 200px; position: absolute" Text="[lblError]"></asp:Label>
 
