@@ -7,6 +7,16 @@ namespace Testing2
     [TestClass]
     public class tstProduct
     {
+        //good test data
+        //create some tests to pass to the method
+        string ProductName = "Black Case";
+        string SmartPhoneBrand = "Apple";
+        string SmartPhoneModel = "iPhone 12 Pro";
+        string Price = "16";
+        string StockLevel = "128";
+        string ReOrderLevel = "12";
+        string DateAdded = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -18,7 +28,7 @@ namespace Testing2
         public void ProductIdOK()
         {
             clsProduct AnProduct = new clsProduct();
-            Int32 TestData = 1111;
+            Int32 TestData = 1;
             AnProduct.ProductId = TestData;
             Assert.AreEqual(AnProduct.ProductId, TestData);
         }
@@ -27,7 +37,7 @@ namespace Testing2
         public void SmartPhoneBrandOK()
         {
             clsProduct AnProduct = new clsProduct();
-            String TestData = "Samsung";
+            String TestData = "Apple";
             AnProduct.SmartPhoneBrand = TestData;
             Assert.AreEqual(AnProduct.SmartPhoneBrand, TestData);
         }
@@ -36,7 +46,7 @@ namespace Testing2
         public void SmartPhoneModelOK()
         {
             clsProduct AnProduct = new clsProduct();
-            String TestData = "Galaxy Note 10";
+            String TestData = "iPhone 12 Pro";
             AnProduct.SmartPhoneModel = TestData;
             Assert.AreEqual(AnProduct.SmartPhoneBrand, TestData);
         }
@@ -54,7 +64,7 @@ namespace Testing2
         public void PriceOK()
         {
             clsProduct AnProduct = new clsProduct();
-            decimal TestData = 15.35M;
+            decimal TestData = 16M;
             AnProduct.Price = TestData;
             Assert.AreEqual(AnProduct.Price, TestData);
         }
@@ -72,7 +82,7 @@ namespace Testing2
         public void ReOrderLevelOK()
         {
             clsProduct AnProduct = new clsProduct();
-            Int32 TestData = 20;
+            Int32 TestData = 12;
             AnProduct.ReOrderLevel = TestData;
             Assert.AreEqual(AnProduct.ReOrderLevel, TestData);
         }
@@ -84,6 +94,15 @@ namespace Testing2
             Boolean TestData = true;
             AnProduct.Active = TestData;
             Assert.AreEqual(AnProduct.Active, TestData);
+        }
+
+        [TestMethod]
+        public void DateAddedOK()
+        {
+            clsProduct AnProduct = new clsProduct();
+            DateTime TestData = 01 / 01 / 2021;
+            AnProduct.DateAdded = TestData;
+            Assert.AreEqual(AnProduct.DateAdded, TestData);
         }
 
         [TestMethod]
@@ -216,5 +235,29 @@ namespace Testing2
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void TestDateaddedFound()
+        {
+            clsProduct AnProduct = new clsProduct();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 ProductId = 1;
+            Found = AnProduct.Find(ProductId);
+            if (AnProduct.DateAdded != true);
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsProduct AnProduct = new clsProduct();
+            String Error = "";
+            Error = AnProduct.Valid(ProductName, SmartPhoneBrand, SmartPhoneModel, Price, StockLevel, ReOrderLevel, DateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
     }
 }

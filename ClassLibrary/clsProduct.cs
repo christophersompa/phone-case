@@ -12,6 +12,7 @@ namespace ClassLibrary
         public int StockLevel;
         public int ReOrderLevel;
         public bool Active;
+        public DateTime DateAdded;
 
         public bool Find(int ProductId)
         {
@@ -28,6 +29,7 @@ namespace ClassLibrary
                 Active = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 StockLevel = Convert.ToInt32(DB.DataTable.Rows[0]["StockLevel"]);
                 ReOrderLevel = Convert.ToInt32(DB.DataTable.Rows[0]["ReOrderLevel"]);
+                DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
                 return true;
             }
             else
