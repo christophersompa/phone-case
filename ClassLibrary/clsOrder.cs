@@ -181,6 +181,7 @@ namespace ClassLibrary
                 mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
                 mTotalPrice = Convert.ToInt32(DB.DataTable.Rows[0]["TotalPrice"]);
                 mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mTrackingNo = Convert.ToInt32(DB.DataTable.Rows[0]["TrackingNo"]);
                 mDispatched = Convert.ToBoolean(DB.DataTable.Rows[0]["Dispatched"]);
                 //return that everything worked OK                      
                 return true;
@@ -192,7 +193,109 @@ namespace ClassLibrary
                 return false;
             }
         }
+        public string Valid(string orderNo, string customerName, string customerEmail, string productNo, string quantity, string orderDate, string trackingNo)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store data values
+            DateTime DateTemp;
+            //if the OrderNo is blank
+            if (orderNo.Length == 0)
+            {
+                // record the error
+                Error = Error + "The order no may not be blank : ";
+            }
+            //if the order no is greater than 6 characters
+            if (orderNo.Length > 6)
+            {
+                //record the error
+                Error = Error + "The order no must be less than 6 characters : ";
+            }
+            try
+            {
+                //copy the orderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date 
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                //record the error 
+                Error = Error + "The date was not a valid date : ";
+            }
+            //is the customer name blank
+            if (customerName.Length == 0)
+            {
+                //record the error
+                Error = Error + "the customer name may not be blank :";
+            }
+            //if the customer name is too long
+            if (customerName.Length > 50)
+            {
+                //record the error 
+                Error = Error + "The customer name must be less than 50 characters : ";
+            }
+            //is the customer email blank
+            if (customerEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "the customer email may not be blank :";
+            }
+            //if the customer email is too long
+            if (customerEmail.Length > 50)
+            {
+                //record the error 
+                Error = Error + "The customer email must be less than 50 characters : ";
+            }
+            //if the ProductNo is blank
+            if (productNo.Length == 0)
+            {
+                // record the error
+                Error = Error + "The product no may not be blank : ";
+            }
+            //if the product no is greater than 6 characters
+            if (productNo.Length > 6)
+            {
+                //record the error
+                Error = Error + "The product no must be less than 6 characters : ";
+            }
+            //if the TrackingNo is blank
+            if (trackingNo.Length == 0)
+            {
+                // record the error
+                Error = Error + "The tracking no may not be blank : ";
+            }
+            //if the tracking no is greater than 6 characters
+            if (trackingNo.Length > 6)
+            {
+                //record the error
+                Error = Error + "The tracking no must be less than 6 characters : ";
+            }
+            //if the Quantity is blank
+            if (quantity.Length == 0)
+            {
+                // record the error
+                Error = Error + "The tracking no may not be blank : ";
+            }
+            //if the quantity is greater than 3 characters
+            if (quantity.Length > 3)
+            {
+                //record the error
+                Error = Error + "The quantity must be less than 3 characters : ";
+            }
+            //return any error messages
+            return Error; 
+        }
     }
-} 
+}
     
 

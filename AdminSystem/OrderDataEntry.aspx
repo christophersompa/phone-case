@@ -20,7 +20,7 @@
             <asp:Label ID="lblCustomerEmail" runat="server" Text="Customer Email" width="138px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtCustomerEmail" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lblProductCode" runat="server" Text="Product Code" width="138px"></asp:Label>
+            <asp:Label ID="lblProductNo" runat="server" Text="Product Number" width="138px"></asp:Label>
 &nbsp;<asp:TextBox ID="txtProductCode" runat="server" Width="53px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
             &nbsp;
