@@ -21,7 +21,7 @@
 &nbsp;<asp:TextBox ID="txtCustomerEmail" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblProductNo" runat="server" Text="Product Number" width="138px"></asp:Label>
-&nbsp;<asp:TextBox ID="txtProductCode" runat="server" Width="53px"></asp:TextBox>
+&nbsp;<asp:TextBox ID="txtProductNo" runat="server" Width="53px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
             &nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
