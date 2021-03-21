@@ -91,7 +91,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtOrderNo.Text = AnOrder.OrderNo.ToString();
             txtCustomerName.Text = AnOrder.CustomerName;
             txtCustomerEmail.Text = AnOrder.CustomerEmail;
-            txtProductCode.Text = AnOrder.ProductNo.ToString();
+            txtProductNo.Text = AnOrder.ProductNo.ToString();
             txtQuantity.Text = AnOrder.Quantity.ToString();
             txtTotalPrice.Text = AnOrder.TotalPrice.ToString();
             txtTrackingNo.Text = AnOrder.TrackingNo.ToString();
