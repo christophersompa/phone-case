@@ -15,26 +15,55 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
+        //capture the order no
+        string OrderNo = txtOrderNo.Text;
         //capture the customer name
-        AnOrder.CustomerName = txtCustomerName.Text;
+        string CustomerName = txtCustomerName.Text;
         //capture the customer email
-        AnOrder.CustomerEmail = txtCustomerEmail.Text;
+        string CustomerEmail = txtCustomerEmail.Text;
         //capture the product code
-        AnOrder.ProductNo = int.Parse(txtProductCode.Text);
+        string ProductNo = txtProductNo.Text;
         //capture the quantity
-        AnOrder.Quantity = int.Parse(txtQuantity.Text);
+        string Quantity = txtQuantity.Text;
         //capture the total price
-        AnOrder.TotalPrice = int.Parse(txtTotalPrice.Text);
+        string TotalPrice = txtTotalPrice.Text;
         //capture the order date
-        AnOrder.OrderDate = DateTime.Parse(txtOrderDate.Text);
+        string OrderDate = txtOrderDate.Text;
         //capture the tracking number
-        AnOrder.TrackingNo = int.Parse(txtTrackingNo.Text);
-        //store the order in the seesion object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the viewer page
-        Response.Redirect("OrderViewer.aspx");
+        string TrackingNo = txtTrackingNo.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
+        if (Error == "")
+        {
+            //capture the customer name
+            AnOrder.CustomerName = CustomerName;
+            //capture the customer email
+            AnOrder.CustomerEmail = CustomerEmail;
+            //capture the product code
+            AnOrder.ProductNo = ProductNo;
+            //capture the quantity
+            AnOrder.Quantity = Quantity;
+            //capture the total price
+            AnOrder.TotalPrice = TotalPrice;
+            //capture the order date
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            //capture the tracking number
+            AnOrder.TrackingNo = TrackingNo;
+            //store the order in the seesion object
+            Session["AnOrder"] = AnOrder;
+            //navigate to the viewer page
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
 
@@ -62,7 +91,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtOrderNo.Text = AnOrder.OrderNo.ToString();
             txtCustomerName.Text = AnOrder.CustomerName;
             txtCustomerEmail.Text = AnOrder.CustomerEmail;
-            txtProductCode.Text = AnOrder.ProductNo.ToString();
+            txtProductNo.Text = AnOrder.ProductNo.ToString();
             txtQuantity.Text = AnOrder.Quantity.ToString();
             txtTotalPrice.Text = AnOrder.TotalPrice.ToString();
             txtTrackingNo.Text = AnOrder.TrackingNo.ToString();
