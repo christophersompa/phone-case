@@ -8,28 +8,50 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 CustomerNo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the numbger of the customer to be processed
+        CustomerNo = Convert.ToInt32(Session["CustomerNo"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record 
+            if (CustomerNo != 1)
+            {
+                //display the current data for the record 
+                DisplayCustomer();
+            }
+        }
+    }
 
+    void DisplayCustomer()
+    {
+        //create an instance of the customer
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        // find the record to update
+        Customer.ThisCustomer.Find(CustomerNo);
+        //display the data for this record
+        txtCustomerNo.Text = Customer.ThisCustomer.CustomerNo.ToString();
+        txtFirstName.Text = Customer.ThisCustomer.FirstName;
+        txtSurname.Text = Customer.ThisCustomer.Surname;
+        txtAddress.Text = Customer.ThisCustomer.Address;
+        txtDateAdded.Text = Customer.ThisCustomer.DateAdded.ToString();
+        chkOver18.Checked = Customer.ThisCustomer.Over18;
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
-
         //capture the first name
         string FirstName = txtFirstName.Text;
-
         //capture the surname
-        string Surname = txtSurname.Text;
-
+        string Surname = txtSurname.Text;   
         //capture the address
         string Address = txtAddress.Text;
-
         //capture the date of birth
         string DateAdded = txtDateAdded.Text;
-
         //variable to store any error messages
         string Error = "";
 
@@ -37,24 +59,44 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnCustomer.Valid(FirstName, Surname, Address, DateAdded);
         if (Error == "")
         {
+            //caputure the customer no 
+            AnCustomer.CustomerNo = CustomerNo;
             //capture the first name
             AnCustomer.FirstName = FirstName;
-
             //capture the surname
             AnCustomer.Surname = Surname;
-
             //capture the address
             AnCustomer.Address = Address;
-
             //capture the date of birth
             AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            //capture active
+            AnCustomer.Over18 = chkOver18.Checked;
+            //create a new instance of the address collection 
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
 
-            //store the customer in the session object
-            Session["AnCustomer"] = AnCustomer;
+            //if this is a new record i.e. CustomerNo = -1 then add the data 
+            if (CustomerNo == -1)
+            {
 
-            //navigate to the viewer page
-            Response.Redirect("CustomerViewer.aspx");
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to updat e
+                CustomerList.ThisCustomer.Find(CustomerNo);
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("CustomerList.aspx");
         }
+
         else
         {
             //display the error message

@@ -127,7 +127,7 @@ namespace ClassLibrary
                 mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18?"]);
+                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18"]);
                 //return that everything worked OK
                 return true;
             }
