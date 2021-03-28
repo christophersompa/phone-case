@@ -278,7 +278,7 @@ namespace Testing1
             Found = AnCustomer.Find(CustomerNo);
 
             //check the property 
-            if (AnCustomer.DateAdded != Convert.ToDateTime("06/03/2021"))
+            if (AnCustomer.DateAdded != Convert.ToDateTime("25/03/2021"))
             {
                 OK = false;
             }
