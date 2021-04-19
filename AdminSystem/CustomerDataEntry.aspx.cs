@@ -134,7 +134,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtFirstName.Text = AnCustomer.FirstName;
             txtSurname.Text = AnCustomer.Surname;
             txtAddress.Text = AnCustomer.Address;
-            txtDateAdded.Text = AnCustomer.DateAdded.ToString();
+            txtDateAdded.Text = AnCustomer.DateAdded.ToShortDateString();
         }
+    }
+
+    protected void txtDateAdded_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
