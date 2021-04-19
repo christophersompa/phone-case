@@ -30,9 +30,9 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomersList.DataValueField = "CustomerNo";
         //set the data field to display 
         lstCustomersList.DataTextField = "FirstName";
+        
         //bind the data to the date list
         lstCustomersList.DataBind();
-        
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -99,6 +99,7 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomersList.DataTextField = "Surname";
         //bind the data to the list 
         lstCustomersList.DataBind();
+
     }
 
     protected void btnClear_Click(object sender, EventArgs e)

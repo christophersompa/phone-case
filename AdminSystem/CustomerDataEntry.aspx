@@ -25,7 +25,7 @@
 
             <asp:CheckBox ID="chkOver18" runat="server" style="z-index: 1; left: 10px; top: 170px; position: absolute" Text="Over 18?" />
 
-            <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 134px; top: 140px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 134px; top: 140px; position: absolute" OnTextChanged="txtDateAdded_TextChanged"></asp:TextBox>
 
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 200px; position: absolute" Text="[lblError]"></asp:Label>
 
