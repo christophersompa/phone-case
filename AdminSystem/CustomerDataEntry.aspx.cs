@@ -12,7 +12,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     Int32 CustomerNo;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //get the numbger of the customer to be processed
+        //get the number of the customer to be processed
         CustomerNo = Convert.ToInt32(Session["CustomerNo"]);
         if (IsPostBack == false)
         {
@@ -36,7 +36,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtFirstName.Text = Customer.ThisCustomer.FirstName;
         txtSurname.Text = Customer.ThisCustomer.Surname;
         txtAddress.Text = Customer.ThisCustomer.Address;
-        txtDateAdded.Text = Customer.ThisCustomer.DateAdded.ToString();
+        txtDateAdded.Text = Customer.ThisCustomer.DateAdded.ToShortDateString();
         chkOver18.Checked = Customer.ThisCustomer.Over18;
     }
 
@@ -131,15 +131,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Found == true)
         {
             //display the value of the properties in the form
+
             txtFirstName.Text = AnCustomer.FirstName;
             txtSurname.Text = AnCustomer.Surname;
             txtAddress.Text = AnCustomer.Address;
             txtDateAdded.Text = AnCustomer.DateAdded.ToShortDateString();
+        }
+        else
+        {
+            txtCustomerNo.Text = "";
+            txtFirstName.Text = "";
+            txtSurname.Text = "";
+            txtAddress.Text = "";
+            txtDateAdded.Text = "";
+                
+            //display error message
+            lblError.Text = "record cannot found!";
         }
     }
 
     protected void txtDateAdded_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerList.aspx");
     }
 }
