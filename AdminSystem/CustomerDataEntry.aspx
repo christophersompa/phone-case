@@ -30,7 +30,7 @@
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 200px; position: absolute" Text="[lblError]"></asp:Label>
 
             <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 10px; top: 225px; position: absolute" Text="OK" OnClick="btnOK_Click" />
-            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 60px; top: 225px; position: absolute" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 60px; top: 225px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
 
             <asp:Button ID="btnFind" runat="server" style="z-index: 1; left: 400px; top: 15px; position: absolute" Text="Find" OnClick="btnFind_Click" />
 

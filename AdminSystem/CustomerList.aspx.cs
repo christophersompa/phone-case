@@ -30,7 +30,7 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomersList.DataValueField = "CustomerNo";
         //set the data field to display 
         lstCustomersList.DataTextField = "FirstName";
-        
+
         //bind the data to the date list
         lstCustomersList.DataBind();
     }
@@ -49,10 +49,10 @@ public partial class _1_List : System.Web.UI.Page
         Int32 CustomerNo;
 
         //if a record has been selected from the list 
-        if (lstCustomersList.SelectedIndex != 1)
+        if (lstCustomersList.SelectedIndex != -1)
         {
             // get the primary key value of the record to edit
-            CustomerNo = Convert.ToInt32(lstCustomersList.SelectedIndex);
+            CustomerNo = Convert.ToInt32(lstCustomersList.SelectedValue);
             //store the data in the session object  
             Session["CustomerNo"] = CustomerNo;
             //redirect to the edit page
@@ -61,7 +61,7 @@ public partial class _1_List : System.Web.UI.Page
         else //if no record has been selected 
         {
             //display error 
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
         }
     }
 
@@ -88,6 +88,7 @@ public partial class _1_List : System.Web.UI.Page
     }
 
     protected void btnApply_Click(object sender, EventArgs e)
+
     {
         //create an instance of the customer collection
         clsCustomerCollection Customers = new clsCustomerCollection();
@@ -111,9 +112,9 @@ public partial class _1_List : System.Web.UI.Page
         txtbox_eSurname.Text = "";
         lstCustomersList.DataSource = Customers.CustomerList;
         //set the name of the primary kwy 
-        lstCustomersList.DataTextFormatString = "CustomerNo";
+        lstCustomersList.DataValueField = "CustomerNo";
         //set the name of the field to display 
-        lstCustomersList.DataTextField = "Surname";
+        lstCustomersList.DataTextField = "FirstName";
         //bind the data to the list
         lstCustomersList.DataBind();
     }
