@@ -37,7 +37,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //variable to store any error messages
         string Error = "";
         //validate the data
-        Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
+       // Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
         if (Error == "")
         {
             //capture the customer name
@@ -45,15 +45,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the customer email
             AnOrder.CustomerEmail = CustomerEmail;
             //capture the product code
-            AnOrder.ProductNo = ProductNo;
+            //AnOrder.ProductNo = ProductNo;
             //capture the quantity
-            AnOrder.Quantity = Quantity;
+            //AnOrder.Quantity = Quantity;
             //capture the total price
-            AnOrder.TotalPrice = TotalPrice;
+            //AnOrder.TotalPrice = TotalPrice;
             //capture the order date
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
             //capture the tracking number
-            AnOrder.TrackingNo = TrackingNo;
+            //AnOrder.TrackingNo = TrackingNo;
             //store the order in the seesion object
             Session["AnOrder"] = AnOrder;
             //navigate to the viewer page

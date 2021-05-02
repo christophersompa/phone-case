@@ -18,21 +18,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
         //capture the address
-        AnStaff.Address = txtAddress.Text;
-        //capture the availability
-        AnStaff.Available = chkAvailable.AutoPostBack;
+        string Address = txtAddress.Text;
         //capture the date of birth
-        AnStaff.DoB = DateTime.Parse(txtDoB.Text);
+        string DoB = txtDoB.Text;
         //capture the name
-        AnStaff.Name = txtName.Text;
+        string Name = txtName.Text;
         //capture the post code
-        AnStaff.PostCode = txtPostCode.Text;
+        string PostCode = txtPostCode.Text;
         //capture the staff id
-        AnStaff.StaffId = int.Parse(txtStaffId.Text);
-        //store the data in the session object
-        Session["AnStaff"] = AnStaff;
-        //navigate to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        string StaffId = txtStaffId.Text;
+        //variable to store any error mesages
+        string Error = "";
+        //validate teh data
+        Error = AnStaff.Valid(Name, PostCode, Address, DoB);
+        if (Error == "")
+        {
+            //capture the Name
+            AnStaff.Name = Name;
+            //capture the Post Code
+            AnStaff.PostCode = PostCode;
+            //capture the Address
+            AnStaff.Address = Address;
+            //capture the Date of Birth
+            AnStaff.DoB = Convert.ToDateTime(txtDoB.Text);
+            //store the data in the session object
+            Session["AnStaff"] = AnStaff;
+            //navigate to the viewer page
+            Response.Redirect("StaffViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
 
