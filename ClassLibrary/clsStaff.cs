@@ -106,5 +106,79 @@ namespace ClassLibrary
             }
             //
         }
+
+        public string Valid(string name, string postCode, string address, string doB)
+        {
+            //NAME
+            //create a string variable to store the error
+            String Error = "";
+
+            //create a temp variable to store date values
+            DateTime DateTemp;
+
+            //if the Name is blank
+            if (name.Length == 0)
+            {
+                //record the error
+                Error = Error + "The name may not be blank : ";
+            }
+            //if the name is greater than 15 characters
+            if (name.Length > 15)
+            {
+                //record the error
+                Error = Error + "The name must be 15 characters or less : ";
+            }
+            //POST CODE
+            //is the post code blank
+            if (postCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (postCode.Length > 10)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 10 characters : ";
+            }
+            //DATE OF BIRTH
+            try
+            {
+                //copy the dateAdded value to the DateTemp varibale
+                DateTemp = Convert.ToDateTime(doB);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+                if (DateTemp == DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the present : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            //ADDRESS
+            //is the address blank
+            if (address.Length == 0)
+            {
+                //record the error
+                Error = Error + "The street may not be blank : ";
+            }
+            //if the address is too long
+            if (address.Length > 30)
+            {
+                //record the error
+                Error = Error + "The street must be less than 30 characters : ";
+            }
+
+            //return any error messages
+            return Error;
+            
+        }
     }
 }

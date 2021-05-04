@@ -44,16 +44,29 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void CountPropertyOK()
+        public void ListAndCountOK()
         {
             //create an instance of the class we want to create
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to asign to the property
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllCustomers.Count = SomeCount;
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            //add an item to the list
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //set its properties 
+            TestItem.Over18 = true;
+            TestItem.CustomerNo = 1;
+            TestItem.FirstName = "some first name";
+            TestItem.Surname = "some surname";
+            TestItem.Address = "some address";
+            TestItem.DateAdded = DateTime.Now.Date;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property 
+            AllCustomers.CustomerList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
+            Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
 
         [TestMethod]
@@ -210,12 +223,12 @@ namespace Testing1
             if (FilteredSurname.Count == 2)
             {
                 //check that the first record is ID 23
-                if (FilteredSurname.CustomerList[0].CustomerNo != 23)
+                if (FilteredSurname.CustomerList[0].CustomerNo != 1044)
                 {
                     OK = false;
                 }
                 //check tha the first record is ID 24 
-                if (FilteredSurname.CustomerList[1].CustomerNo != 24)
+                if (FilteredSurname.CustomerList[1].CustomerNo != 1045)
                 {
                     OK = false;
                 }
