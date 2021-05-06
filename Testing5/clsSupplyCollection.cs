@@ -7,7 +7,9 @@ using System.Collections.Generic;
 
 namespace Testing5
 {
+
     public class clsSupplyCollection
+
     {
         //private data member for the list 
         List<clsSupply> mSupplyList = new List<clsSupply>();
@@ -69,7 +71,9 @@ namespace Testing5
 
 
         //constructor for the class
+
         public clsSupplyCollection()
+
         {
             //object for data connection 
             clsDataConnection DB = new clsDataConnection();
@@ -89,7 +93,9 @@ namespace Testing5
             DB.AddParameter("@SupplierName", mThisSupply.SupplierName);
             DB.AddParameter("@DateOrdered", mThisSupply.DateOrdered);
             DB.AddParameter("@Price", mThisSupply.Price);
-            DB.AddParameter("@AvaliableStock", mThisSupply.AvaliableStock);
+
+            DB.AddParameter("@AvailableStock", mThisSupply.AvailableStock);
+
             //execute the query returning the primary key value 
             return DB.Execute("sproc_tblSupply_Insert");
         }
@@ -137,7 +143,9 @@ namespace Testing5
                 clsSupply AnSupply = new clsSupply
                 {
                     //read in the fields from the current record 
-                    AvaliableStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["Avaliable Stock"]),
+
+                    AvailableStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available Stock"]),
+
                     PhoneCaseId = Convert.ToInt32(DB.DataTable.Rows[Index]["PhoneCaseID"]),
                     PhoneModel = Convert.ToString(DB.DataTable.Rows[Index]["PhoneModel"]),
                     SupplierName = Convert.ToString(DB.DataTable.Rows[Index]["SupplierName"]),
@@ -155,7 +163,9 @@ namespace Testing5
         public void ReportBySupplierNameTestDataFound()
         {
             //create an instance of the filtered data 
+
             clsSupplyCollection FilteredSupply = new clsSupplyCollection();
+
             //var to store outcome 
             Boolean OK = true;
             //apply a supplier name that doesn't exist 

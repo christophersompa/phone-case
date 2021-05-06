@@ -14,7 +14,9 @@ namespace Testing5
         public void InstanceOK()
         {
             //create an instance of the class we want to create 
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //test to see that it exists 
             Assert.IsNotNull(AllSupply);
         }
@@ -22,7 +24,9 @@ namespace Testing5
         public void SupplyOK()
         {
             //create an instance of the class we want to create
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //create some test data to assign to the property 
             //in this case the data needs to be a list of objects 
             List<clsSupply> TestList = new List<clsSupply>();
@@ -31,7 +35,10 @@ namespace Testing5
             clsSupply TestItem = new clsSupply
             {
                 //set its properties 
-                AvaliableStock = true,
+
+
+                AvailableStock = true,
+
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -52,12 +59,18 @@ namespace Testing5
         public void ThisSupplyOK()
         {
             //create an instance of the class we want to create 
+
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //create some test data to assign to the property 
             clsSupply TestSupply = new clsSupply
             {
                 //set the properties of the test object 
-                AvaliableStock = true,
+
+
+                AvailableStock = true,
+
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -76,7 +89,10 @@ namespace Testing5
         public void ListAndCountOk()
         {
             //create an instnace of the class we want to create 
+
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //create some test data to assign to the supply 
             //in this case the data needs to be a list of objects 
             List<clsSupply> TestList = new List<clsSupply>();
@@ -85,7 +101,9 @@ namespace Testing5
             clsSupply TestItem = new clsSupply
             {
                 //set its properties 
-                AvaliableStock = true,
+
+                AvailableStock = true,
+
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -104,13 +122,16 @@ namespace Testing5
         public void AddMethodOK()
         {
             //create an instance of the class we want to create 
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //create the item of test data 
             clsSupply TestItem = new clsSupply();
             //var to store the primary key 
             Int32 PrimaryKey = 0;
             //set its properties 
-            TestItem.AvaliableStock = true;
+
+            TestItem.AvailableStock = true;
             TestItem.PhoneCaseId = 1;
             TestItem.PhoneModel = "IPhone";
             TestItem.SupplierName = "Spigen";
@@ -132,13 +153,16 @@ namespace Testing5
         public void DeleteMethodOK()
         {
             //create an instance of the class we want to create 
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
+
             //create the item of test data 
             clsSupply TestItem = new clsSupply();
             //var to store the primary key 
             Int32 PrimaryKey = 0;
             //set its properties 
-            TestItem.AvaliableStock = true;
+
+            TestItem.AvailableStock = true;
             TestItem.PhoneCaseId = 1;
             TestItem.PhoneModel = "IPhone";
             TestItem.SupplierName = "Spigen";
@@ -166,6 +190,7 @@ namespace Testing5
         public void ReportBySupplierNameMethodOK()
         {
             //create an instance of the class containing unfiletered results
+
             clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create an instance of filtered data 
             clsSupplyCollection FilteredSupply = new clsSupplyCollection();
@@ -176,4 +201,6 @@ namespace Testing5
         }
 
     }
+
+
 }

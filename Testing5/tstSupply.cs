@@ -26,16 +26,16 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void AvaliableStockOK()
+        public void AvailableStockOK()
         {
             //create an instnace of the class we want to create 
             clsSupply AnSupply = new clsSupply();
             //create test data to assign to the Supply
             Boolean TestData = true;
             //assign the data to the Supply 
-            AnSupply.AvaliableStock = TestData;
+            AnSupply.AvailableStock = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnSupply.AvaliableStock, TestData);
+            Assert.AreEqual(AnSupply.AvailableStock, TestData);
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void TestAvaliableStockFound()
+        public void TestAvailableStockFound()
         {
             //create an instnace of the class we want to create 
             clsSupply AnSupply = new clsSupply();
@@ -245,7 +245,7 @@ namespace Testing5
             //invoke the method 
             Found = AnSupply.Find(PhoneCaseId);
             //check the supply 
-            if (AnSupply.AvaliableStock != true)
+            if (AnSupply.AvailableStock != true)
             {
                 OK = false;
             }
