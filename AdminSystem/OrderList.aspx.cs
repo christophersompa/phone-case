@@ -42,4 +42,53 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("AnOrder.aspx");
 
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnEdit_Click1(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to edited
+        Int32 OrderNo;
+
+        //if a record has been selected from the list 
+        if (lstOrdersList.SelectedIndex != -1)
+        {
+            // get the primary key value of the record to edit
+            OrderNo = Convert.ToInt32(lstOrdersList.SelectedValue);
+            //store the data in the session object  
+            Session["OrderNo"] = OrderNo;
+            //redirect to the edit page
+            Response.Redirect("OrderDataEntry.aspx");
+        }
+        else //if no record has been selected 
+        {
+            //display error 
+            lblError.Text = "Please select a record to edit from the list";
+        }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 OrderNo;
+
+        //if a record has been selected from the list 
+        if (lstOrdersList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to delete
+            OrderNo = Convert.ToInt32(lstOrdersList.SelectedValue);
+            //store the data in the session object
+            Session["OrderNo"] = OrderNo;
+            //redirect to the delete page
+            Response.Redirect("DeleteOrder.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display error
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
 }
