@@ -8,9 +8,38 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 OrderNo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the order to be processed
+        OrderNo = Convert.ToInt32(Session["OrderNo"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record 
+            if (OrderNo != 1)
+            {
+                //display the current data for the record 
+                DisplayOrder();
+            }
+        }
+    }
 
+    void DisplayOrder()
+    {
+        //create an instance of the customer
+        clsOrderCollection Order = new clsOrderCollection();
+        // find the record to update
+        Order.ThisOrder.Find(OrderNo);
+        //display the data for this record
+        txtOrderNo.Text = Order.ThisOrder.OrderNo.ToString();
+        txtCustomerName.Text = Order.ThisOrder.CustomerName;
+        txtCustomerEmail.Text = Order.ThisOrder.CustomerEmail;
+        txtProductNo.Text = Order.ThisOrder.ProductNo.ToString();
+        txtQuantity.Text = Order.ThisOrder.Quantity.ToString();
+        txtTotalPrice.Text = Order.ThisOrder.TotalPrice.ToString();
+        txtTrackingNo.Text = Order.ThisOrder.TrackingNo.ToString();
+        txtOrderDate.Text = Order.ThisOrder.OrderDate.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -40,24 +69,47 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
         if (Error == "")
         {
+            //capture the order no
+            AnOrder.OrderNo = Convert.ToInt32(OrderNo);
             //capture the customer name
             AnOrder.CustomerName = CustomerName;
             //capture the customer email
             AnOrder.CustomerEmail = CustomerEmail;
             //capture the product code
-            AnOrder.ProductNo = ProductNo;
+            AnOrder.ProductNo = Convert.ToInt32(ProductNo);
             //capture the quantity
-            AnOrder.Quantity = Quantity;
+            AnOrder.Quantity = Convert.ToInt32(Quantity);
             //capture the total price
-            AnOrder.TotalPrice = TotalPrice;
+            AnOrder.TotalPrice = Convert.ToInt32(TotalPrice);
             //capture the order date
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
             //capture the tracking number
-            AnOrder.TrackingNo = TrackingNo;
-            //store the order in the seesion object
-            Session["AnOrder"] = AnOrder;
-            //navigate to the viewer page
-            Response.Redirect("OrderViewer.aspx");
+            AnOrder.TrackingNo = Convert.ToInt32(TrackingNo);
+            //capture dispatched
+            AnOrder.Dispatched = chkDispatched.Checked;
+            //create a new instance of the order collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+
+            //if this is a new record i.e. OrderNo = -1 then add the data
+            if (Convert.ToInt32(OrderNo) == -1)
+            {
+                //set the ThisOrder property
+                OrderList.ThisOrder = AnOrder;
+                //add the new record
+                OrderList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                OrderList.ThisOrder.Find(Convert.ToInt32(OrderNo));
+                //set the ThisOrder property
+                OrderList.ThisOrder = AnOrder;
+                //update the record
+                OrderList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
