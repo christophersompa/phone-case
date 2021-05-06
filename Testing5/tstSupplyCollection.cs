@@ -31,7 +31,7 @@ namespace Testing5
             clsSupply TestItem = new clsSupply
             {
                 //set its properties 
-                AvaliableStock = true,
+                AvailableStock = true,
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -57,7 +57,7 @@ namespace Testing5
             clsSupply TestSupply = new clsSupply
             {
                 //set the properties of the test object 
-                AvaliableStock = true,
+                AvailableStock = true,
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -85,7 +85,7 @@ namespace Testing5
             clsSupply TestItem = new clsSupply
             {
                 //set its properties 
-                AvaliableStock = true,
+                AvailableStock = true,
                 PhoneCaseId = 1,
                 PhoneModel = "IPhone",
                 SupplierName = "Spigen",
@@ -110,7 +110,7 @@ namespace Testing5
             //var to store the primary key 
             Int32 PrimaryKey = 0;
             //set its properties 
-            TestItem.AvaliableStock = true;
+            TestItem.AvailableStock = true;
             TestItem.PhoneCaseId = 1;
             TestItem.PhoneModel = "IPhone";
             TestItem.SupplierName = "Spigen";
@@ -138,7 +138,7 @@ namespace Testing5
             //var to store the primary key 
             Int32 PrimaryKey = 0;
             //set its properties 
-            TestItem.AvaliableStock = true;
+            TestItem.AvailableStock = true;
             TestItem.PhoneCaseId = 1;
             TestItem.PhoneModel = "IPhone";
             TestItem.SupplierName = "Spigen";
@@ -176,4 +176,7 @@ namespace Testing5
         }
 
     }
+
+//attempting to fix some bugs 
+
 }

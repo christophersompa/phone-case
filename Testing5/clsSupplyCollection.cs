@@ -89,7 +89,7 @@ namespace Testing5
             DB.AddParameter("@SupplierName", mThisSupply.SupplierName);
             DB.AddParameter("@DateOrdered", mThisSupply.DateOrdered);
             DB.AddParameter("@Price", mThisSupply.Price);
-            DB.AddParameter("@AvaliableStock", mThisSupply.AvaliableStock);
+            DB.AddParameter("@AvailableStock", mThisSupply.AvailableStock);
             //execute the query returning the primary key value 
             return DB.Execute("sproc_tblSupply_Insert");
         }
@@ -137,7 +137,7 @@ namespace Testing5
                 clsSupply AnSupply = new clsSupply
                 {
                     //read in the fields from the current record 
-                    AvaliableStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["Avaliable Stock"]),
+                    AvailableStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["AvailableStock"]),
                     PhoneCaseId = Convert.ToInt32(DB.DataTable.Rows[Index]["PhoneCaseID"]),
                     PhoneModel = Convert.ToString(DB.DataTable.Rows[Index]["PhoneModel"]),
                     SupplierName = Convert.ToString(DB.DataTable.Rows[Index]["SupplierName"]),

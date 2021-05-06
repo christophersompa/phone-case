@@ -20,7 +20,7 @@ namespace ClassLibrary
         private decimal mPrice;
 
         //private data member for the Avaliable Stock 
-        public bool mAvaliableStock;
+        public bool mAvailableStock;
 
 
         //PhoneCaseId public supply 
@@ -104,18 +104,18 @@ namespace ClassLibrary
         }
 
         //AvaliableStock public supply 
-        public Boolean AvaliableStock
+        public Boolean AvailableStock
         {
             get
             {
                 //this line of code sends data out of the Supply 
-                return mAvaliableStock;
+                return mAvailableStock;
 
             }
             set
             {
                 //this line of code allows data into the Supply
-                mAvaliableStock = value;
+                mAvailableStock = value;
             }
         }
 
@@ -136,7 +136,7 @@ namespace ClassLibrary
                 mDateOrdered = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOrdered"]);
                 mSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
                 mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
-                mAvaliableStock = Convert.ToBoolean(DB.DataTable.Rows[0]["AvaliableStock"]);
+                mAvailableStock = Convert.ToBoolean(DB.DataTable.Rows[0]["AvailableStock"]);
                 //return that everything worked OK
                 return true;
             }
