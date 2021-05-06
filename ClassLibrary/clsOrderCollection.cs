@@ -109,8 +109,37 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblOrder_Insert");
         }
 
-        
-   
+        public void Update()
+        {
+            //adds a new record to the database based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure 
+            DB.AddParameter("OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("TrackingNo", mThisOrder.TrackingNo);
+            DB.AddParameter("OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("ProductNo", mThisOrder.ProductNo);
+            DB.AddParameter("Quantity", mThisOrder.Quantity);
+            DB.AddParameter("TotalPrice", mThisOrder.TotalPrice);
+            DB.AddParameter("Dispatched", mThisOrder.Dispatched);
+            DB.AddParameter("CustomerName", mThisOrder.CustomerName);
+            DB.AddParameter("CustomerEmail", mThisOrder.CustomerEmail);
+            //execute the query returning the primary key value
+            DB.Execute("sproc_tblOrder_Update");
+
+        }
+        public void Delete()
+        {
+            //deletes the record pointed to by thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+
     }
 
     
