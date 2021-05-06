@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Testing5
 {
-    public class clsSupplyCollection
+    public class ClsSupplyCollection
     {
         //private data member for the list 
         List<clsSupply> mSupplyList = new List<clsSupply>();
@@ -69,7 +69,7 @@ namespace Testing5
 
 
         //constructor for the class
-        public clsSupplyCollection()
+        public ClsSupplyCollection()
         {
             //object for data connection 
             clsDataConnection DB = new clsDataConnection();
@@ -155,7 +155,7 @@ namespace Testing5
         public void ReportBySupplierNameTestDataFound()
         {
             //create an instance of the filtered data 
-            clsSupplyCollection FilteredSupply = new clsSupplyCollection();
+            ClsSupplyCollection FilteredSupply = new ClsSupplyCollection();
             //var to store outcome 
             Boolean OK = true;
             //apply a supplier name that doesn't exist 
