@@ -32,4 +32,14 @@ public partial class _Default : System.Web.UI.Page
         //bind the data to the list
         lstOrdersList.DataBind();
     }
+
+    //event handler for the add button
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //store -1 into the session object to indicate this is a new record
+        Session["OrderNo"] = -1;
+        //redirect to the data entry page
+        Response.Redirect("AnOrder.aspx");
+
+    }
 }

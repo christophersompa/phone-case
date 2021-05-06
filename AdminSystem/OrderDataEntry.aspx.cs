@@ -45,19 +45,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the customer email
             AnOrder.CustomerEmail = CustomerEmail;
             //capture the product code
-            //AnOrder.ProductNo = ProductNo;
+            AnOrder.ProductNo = Convert.ToInt32(ProductNo);
             //capture the quantity
-            //AnOrder.Quantity = Quantity;
+            AnOrder.Quantity = Convert.ToInt32(Quantity);
             //capture the total price
-            //AnOrder.TotalPrice = TotalPrice;
+            AnOrder.TotalPrice = Convert.ToInt32(TotalPrice);
             //capture the order date
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
             //capture the tracking number
-            //AnOrder.TrackingNo = TrackingNo;
-            //store the order in the seesion object
-            Session["AnOrder"] = AnOrder;
-            //navigate to the viewer page
-            Response.Redirect("OrderViewer.aspx");
+            AnOrder.TrackingNo = Convert.ToInt32(TrackingNo);
+            //capture dispatched
+            AnOrder.Dispatched = chkDispatched.Checked;
+            //create a new instance of the order collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+            //set the ThisOrder property
+            OrderList.ThisOrder = AnOrder;
+            //add the new record
+            OrderList.Add();
+            //redirect back to the listpage
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
