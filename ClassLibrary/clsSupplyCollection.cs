@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Testing5
 {
-    public class ClsSupplyCollection
+    public class clsSupplyCollection
     {
         //private data member for the list 
         List<clsSupply> mSupplyList = new List<clsSupply>();
@@ -65,11 +65,13 @@ namespace Testing5
 
         }
 
+        public object SupplierList { get; set; }
+
 
 
 
         //constructor for the class
-        public ClsSupplyCollection()
+        public clsSupplyCollection()
         {
             //object for data connection 
             clsDataConnection DB = new clsDataConnection();
@@ -94,7 +96,7 @@ namespace Testing5
             return DB.Execute("sproc_tblSupply_Insert");
         }
 
-        internal void Delete()
+        public void Delete()
         {
             //deletes the record pointed to by thisSupply 
             //connect to the database 
@@ -105,7 +107,7 @@ namespace Testing5
             DB.Execute("sproc_tblSupply_Delete");
         }
 
-        internal void ReportBySupplierName(string SupplierName)
+        public void ReportBySupplierName(string SupplierName)
         {
             //filters the record based on a full or partial supplier name 
             //connect to the database
@@ -155,7 +157,7 @@ namespace Testing5
         public void ReportBySupplierNameTestDataFound()
         {
             //create an instance of the filtered data 
-            ClsSupplyCollection FilteredSupply = new ClsSupplyCollection();
+            clsSupplyCollection FilteredSupply = new clsSupplyCollection();
             //var to store outcome 
             Boolean OK = true;
             //apply a supplier name that doesn't exist 

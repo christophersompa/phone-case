@@ -14,7 +14,7 @@ namespace Testing5
         public void InstanceOK()
         {
             //create an instance of the class we want to create 
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //test to see that it exists 
             Assert.IsNotNull(AllSupply);
         }
@@ -22,7 +22,7 @@ namespace Testing5
         public void SupplyOK()
         {
             //create an instance of the class we want to create
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create some test data to assign to the property 
             //in this case the data needs to be a list of objects 
             List<clsSupply> TestList = new List<clsSupply>();
@@ -52,7 +52,7 @@ namespace Testing5
         public void ThisSupplyOK()
         {
             //create an instance of the class we want to create 
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create some test data to assign to the property 
             clsSupply TestSupply = new clsSupply
             {
@@ -76,7 +76,7 @@ namespace Testing5
         public void ListAndCountOk()
         {
             //create an instnace of the class we want to create 
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create some test data to assign to the supply 
             //in this case the data needs to be a list of objects 
             List<clsSupply> TestList = new List<clsSupply>();
@@ -104,7 +104,7 @@ namespace Testing5
         public void AddMethodOK()
         {
             //create an instance of the class we want to create 
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create the item of test data 
             clsSupply TestItem = new clsSupply();
             //var to store the primary key 
@@ -132,7 +132,7 @@ namespace Testing5
         public void DeleteMethodOK()
         {
             //create an instance of the class we want to create 
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create the item of test data 
             clsSupply TestItem = new clsSupply();
             //var to store the primary key 
@@ -166,9 +166,9 @@ namespace Testing5
         public void ReportBySupplierNameMethodOK()
         {
             //create an instance of the class containing unfiletered results
-            ClsSupplyCollection AllSupply = new ClsSupplyCollection();
+            clsSupplyCollection AllSupply = new clsSupplyCollection();
             //create an instance of filtered data 
-            ClsSupplyCollection FilteredSupply = new ClsSupplyCollection();
+            clsSupplyCollection FilteredSupply = new clsSupplyCollection();
             //apply a blank string (should return all records);
             FilteredSupply.ReportBySupplierName("");
             //test to see that the two value are the same 
@@ -176,7 +176,5 @@ namespace Testing5
         }
 
     }
-
-//attempting to fix some bugs, still attempting
 
 }
