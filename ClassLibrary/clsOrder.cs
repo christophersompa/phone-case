@@ -193,7 +193,7 @@ namespace ClassLibrary
                 return false;
             }
         }
-        public string Valid(string orderNo, string customerName, string customerEmail, string productNo, string quantity, string orderDate, string trackingNo, string trackingNo1)
+        public string Valid(string orderNo, string customerName, string customerEmail, string productNo, string quantity, string orderDate, string trackingNo)
         {
             //create a string variable to store the error
             String Error = "";
