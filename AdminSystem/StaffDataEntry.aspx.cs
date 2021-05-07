@@ -8,12 +8,29 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 StaffId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
+    void DisplayCustomer()
+    {
+        //create an instance of the customer
+        clsStaffCollection Staff = new clsStaffCollection();
+        // find the record to update
+        Staff.ThisStaff.Find(StaffId);
+        //display the data for this record
+        txtStaffId.Text = Staff.ThisStaff.StaffId.ToString();
+        txtAddress.Text = Staff.ThisStaff.Address;
+        chkAvailable.Checked = Staff.ThisStaff.Available;
+        txtDoB.Text = Staff.ThisStaff.DoB.ToString();
+        txtName.Text = Staff.ThisStaff.Name;
+        txtPostCode.Text = Staff.ThisStaff.PostCode;
 
-    protected void btnOk_Click(object sender, EventArgs e)
+    }
+        protected void btnOk_Click(object sender, EventArgs e)
     {
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
@@ -25,14 +42,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string Name = txtName.Text;
         //capture the post code
         string PostCode = txtPostCode.Text;
-        //capture the staff id
-        string StaffId = txtStaffId.Text;
         //variable to store any error mesages
         string Error = "";
-        //validate teh data
+        //validate the data
         Error = AnStaff.Valid(Name, PostCode, Address, DoB);
         if (Error == "")
         {
+            //capture the staff ID
+            AnStaff.StaffId = StaffId;
             //capture the Name
             AnStaff.Name = Name;
             //capture the Post Code
@@ -41,10 +58,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.Address = Address;
             //capture the Date of Birth
             AnStaff.DoB = Convert.ToDateTime(txtDoB.Text);
-            //store the data in the session object
-            Session["AnStaff"] = AnStaff;
-            //navigate to the viewer page
-            Response.Redirect("StaffViewer.aspx");
+            //capture available
+            AnStaff.Available = chkAvailable.Checked;
+            //create a new instance fo the address collection
+            clsStaffCollection StaffList = new clsStaffCollection();
+            //if this is a new record i.e. StaffId = -1 then add the data
+            if (StaffId == -1)
+            {
+                //set the ThisStaff property
+                StaffList.ThisStaff = AnStaff;
+                //add the new record
+                StaffList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                StaffList.ThisStaff.Find(StaffId);
+                //set the ThisStaff property
+                StaffList.ThisStaff = AnStaff;
+                //update the record
+                StaffList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("StaffList.aspx");
         }
         else
         {

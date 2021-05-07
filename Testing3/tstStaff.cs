@@ -10,10 +10,10 @@ namespace Testing3
     {
         //good test data
         //create some test data to pass to the method
-        
-        string Name = "Joe Smith";
-        string PostCode = "LE2 7BU";
-        string Address = "12 Green Street";
+
+        string Name = "Some Name";
+        string PostCode = "Some PostCode";
+        string Address = "Some Address";
         string DoB = DateTime.Now.Date.ToString(); 
         
         [TestMethod]
@@ -21,12 +21,8 @@ namespace Testing3
         {
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create an instance of the class we want to create
-            clsStaffCollection AllStaff = new clsStaffCollection();
             //test to see that it exists
             Assert.IsNotNull(AnStaff);
-            //test to see that it exists
-            Assert.IsNotNull(AllStaff);
         }
         [TestMethod]
         public void AvailablePropertyOK()
@@ -58,7 +54,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            Int32 TestData = 1234;
+            Int32 TestData = 1;
             //assign the data to the property
             AnStaff.StaffId = TestData;
             //test to see that the two values are the same
@@ -136,7 +132,7 @@ namespace Testing3
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 1234;
+            Int32 StaffId = 1;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
@@ -519,7 +515,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AddressMaxPlusOne()
@@ -542,14 +538,21 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             //string variable to store any error message
             String Error = "";
-            //this should pass
-            string Address = "";
-            Address = Address.PadRight(15, 'a');
+            //create so test data to pass to the method
+            string Address = "xxxxxxxxxxxxxxx"; //this should be ok
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
+
+
+
+
+
+
+
         [TestMethod]
         public void DobExtremeMin()
         {
