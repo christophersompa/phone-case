@@ -21,14 +21,14 @@ public partial class _Default : System.Web.UI.Page
     }
     void DisplayOrders()
     {
-        //create an instance of the TrackingNo Collection
+        //create an instance of the Order Collection
         clsOrderCollection Orders = new clsOrderCollection();
-        //set the data source to the list of TrackingNos in the collection
+        //set the data source to the list of CustomerNames in the collection
         lstOrdersList.DataSource = Orders.OrderList;
         //set the name of the primary key
         lstOrdersList.DataValueField = "OrderNo";
         //set the data field to display
-        lstOrdersList.DataTextField = "TrackingNo";
+        lstOrdersList.DataTextField = "CustomerName";
         //bind the data to the list
         lstOrdersList.DataBind();
     }
@@ -43,12 +43,9 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
+  
+
     protected void btnEdit_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btnEdit_Click1(object sender, EventArgs e)
     {
         //var to store the primary key value of the record to edited
         Int32 OrderNo;
@@ -90,5 +87,35 @@ public partial class _Default : System.Web.UI.Page
             //display error
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByCustomerName(txtCustomerName.Text);
+        lstOrdersList.DataSource = Orders.OrderList;
+        //set the name of the primaey key 
+        lstOrdersList.DataValueField = "OrderNo";
+        //set the name of the field to display 
+        lstOrdersList.DataTextField = "CustomerName";
+        //bind the data to the list 
+        lstOrdersList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection 
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByCustomerName("");
+        //clear any existing filter to tidy up the interface
+        txtCustomerName.Text = "";
+        lstOrdersList.DataSource = Orders.OrderList;
+        //set the name of the primary kwy 
+        lstOrdersList.DataValueField = "OrderNo";
+        //set the name of the field to display 
+        lstOrdersList.DataTextField = "CustomerEmail";
+        //bind the data to the list
+        lstOrdersList.DataBind();
     }
 }

@@ -193,7 +193,7 @@ namespace ClassLibrary
                 return false;
             }
         }
-        public string Valid(string orderNo, string customerName, string customerEmail, string productNo, string quantity, string orderDate, string trackingNo, string trackingNo1)
+        public string Valid(string orderNo, string customerName, string customerEmail, string productNo, string quantity, string orderDate, string trackingNo, string totalPrice)
         {
             //create a string variable to store the error
             String Error = "";
@@ -292,9 +292,22 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The quantity must be less than 3 characters : ";
             }
+            //if the TotalPrice is blank
+            if (totalPrice.Length == 0)
+            {
+                // record the error
+                Error = Error + "The total price no may not be blank : ";
+            }
+            //if the tracking no is greater than 6 characters
+            if (totalPrice.Length > 4)
+            {
+                //record the error
+                Error = Error + "The total price must be less than 6 characters : ";
+            }
             //return any error messages
             return Error; 
         }
+
     }
 }
     

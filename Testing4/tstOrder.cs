@@ -17,6 +17,7 @@ namespace Testing4
         string Quantity = "1";
         string OrderDate = DateTime.Now.Date.ToString();
         string TrackingNo = "24";
+        string TotalPrice = "15";
 
 
         [TestMethod]
@@ -310,7 +311,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -325,7 +326,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = ""; //this should trigger an error
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo,TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -339,7 +340,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "a"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo,TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -354,7 +355,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "aa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -369,7 +370,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "aaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -383,7 +384,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -398,7 +399,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "aaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -412,7 +413,7 @@ namespace Testing4
             //create some test data to pass to the method
             string OrderNo = "aaaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -427,7 +428,7 @@ namespace Testing4
             string OrderNo = "";
             OrderNo = OrderNo.PadRight(500, 'a');//this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -447,7 +448,7 @@ namespace Testing4
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -467,7 +468,7 @@ namespace Testing4
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -485,7 +486,7 @@ namespace Testing4
             //convert the date variable to a string variable
             string OrderDate = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");        
         }
@@ -505,7 +506,7 @@ namespace Testing4
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -525,7 +526,7 @@ namespace Testing4
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -539,7 +540,7 @@ namespace Testing4
             //set the OrderDate to a non date value
             string OrderDate = "this is not a date!";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -553,7 +554,7 @@ namespace Testing4
             //this should fail
             string CustomerName = "";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -568,7 +569,7 @@ namespace Testing4
             //this should pass
             string CustomerName = "a";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -583,7 +584,7 @@ namespace Testing4
             //this should pass
             string CustomerName = "aa";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -600,7 +601,7 @@ namespace Testing4
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(49, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -616,7 +617,7 @@ namespace Testing4
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(50, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -632,7 +633,7 @@ namespace Testing4
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(51, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -649,7 +650,7 @@ namespace Testing4
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(25, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -663,7 +664,7 @@ namespace Testing4
             //this should fail
             string CustomerEmail = "";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -678,7 +679,7 @@ namespace Testing4
             //this should pass
             string CustomerEmail = "a";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -693,7 +694,7 @@ namespace Testing4
             //this should pass
             string CustomerEmail = "aa";
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -710,7 +711,7 @@ namespace Testing4
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(49, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -726,7 +727,7 @@ namespace Testing4
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(50, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -742,7 +743,7 @@ namespace Testing4
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(51, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -759,7 +760,7 @@ namespace Testing4
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(25, 'a');
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -773,7 +774,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = ""; //this should trigger an error
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -787,7 +788,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "a"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -802,7 +803,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "aa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -817,7 +818,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "aaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -831,7 +832,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -846,7 +847,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "aaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -860,7 +861,7 @@ namespace Testing4
             //create some test data to pass to the method
             string ProductNo = "aaaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -875,7 +876,7 @@ namespace Testing4
             string ProductNo = "";
             ProductNo = ProductNo.PadRight(500, 'a');//this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -889,7 +890,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = ""; //this should trigger an error
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -903,7 +904,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "a"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -918,7 +919,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -933,7 +934,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -947,7 +948,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -962,7 +963,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -976,7 +977,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaaaaaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -991,7 +992,7 @@ namespace Testing4
             string TrackingNo = "";
             TrackingNo = TrackingNo.PadRight(500, 'a');//this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1005,7 +1006,7 @@ namespace Testing4
             //create some test data to pass to the method
             string Quantity = ""; //this should trigger an error
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1019,7 +1020,7 @@ namespace Testing4
             //create some test data to pass to the method
             string Quantity = "a"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -1034,7 +1035,7 @@ namespace Testing4
             //create some test data to pass to the method
             string Quantity = "aa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -1049,7 +1050,7 @@ namespace Testing4
             //create some test data to pass to the method
             string Quantity = "aaaaa"; //this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1063,7 +1064,7 @@ namespace Testing4
             //create some test data to pass to the method
             string Quantity = "aaaaaa"; //this should be fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1078,7 +1079,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaa"; //this should be ok
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -1092,7 +1093,7 @@ namespace Testing4
             //create some test data to pass to the method
             string TrackingNo = "aaaaaaa"; //this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -1107,7 +1108,7 @@ namespace Testing4
             string Quantity = "";
             Quantity = Quantity.PadRight(500, 'a');//this should fail
             //invoke the method
-            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo);
+            Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, OrderDate, TrackingNo, TotalPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }

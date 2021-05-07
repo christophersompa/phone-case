@@ -27,7 +27,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     void DisplayOrder()
     {
-        //create an instance of the customer
+        //create an instance of the order
         clsOrderCollection Order = new clsOrderCollection();
         // find the record to update
         Order.ThisOrder.Find(OrderNo);
@@ -47,8 +47,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
-        //capture the order no
-        string OrderNo = txtOrderNo.Text;
         //capture the customer name
         string CustomerName = txtCustomerName.Text;
         //capture the customer email
@@ -66,7 +64,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //variable to store any error messages
         string Error = "";
         //validate the data
-        Error = AnOrder.Valid(OrderNo, CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
+        Error = AnOrder.Valid(CustomerName, CustomerEmail, ProductNo, Quantity, TotalPrice, OrderDate, TrackingNo);
         if (Error == "")
         {
             //capture the order no
@@ -126,7 +124,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        //create an instance of the address class 
+        //create an instance of the order class 
         clsOrder AnOrder = new clsOrder();
         //variable to store the primary key
         Int32 OrderNo;

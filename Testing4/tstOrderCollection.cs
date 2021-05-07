@@ -117,7 +117,7 @@ namespace Testing4
             TestItem.TotalPrice = 15;
             TestItem.CustomerName = "Test Name";
             TestItem.CustomerEmail = "testemail@hotmail.com";
-            //set ThisCustomer to the test data
+            //set ThisOrder to the test data
             AllOrders.ThisOrder = TestItem;
             //add the record
             PrimaryKey = AllOrders.Add();
@@ -206,6 +206,60 @@ namespace Testing4
             //test to see that the record was not found
             Assert.IsFalse(Found);
         }
+        [TestMethod]
+        public void ReportByCustomerNameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsOrderCollection AllCustomerNames = new clsOrderCollection();
+            //create an instance of the filtered data 
+            clsOrderCollection FilteredCustomerNames = new clsOrderCollection();
+            //apply a blank string(should return all records);
+            FilteredCustomerNames.ReportByCustomerName("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomerNames.Count, FilteredCustomerNames.Count);
+        }
+        [TestMethod]
+        public void ReportByCustomerNameNoneFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredCustomerNames = new clsOrderCollection();
+            //apply a CustomerName that doesnt exist 
+            FilteredCustomerNames.ReportByCustomerName("Test Name");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredCustomerNames.Count);
+        }
+
+        [TestMethod]
+        public void ReportByCustomerNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredCustomerName = new clsOrderCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a Customer Name that doesnt exist 
+            FilteredCustomerName.ReportByCustomerName("Test Name");
+            //check that the correct number of records are found
+            if (FilteredCustomerName.Count == 2)
+            {
+                //check that the first record is ID 5
+                if (FilteredCustomerName.OrderList[0].OrderNo != 5)
+                {
+                    OK = false;
+                }
+                //check tha the first record is ID 6 
+                if (FilteredCustomerName.OrderList[1].OrderNo != 6)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
+
     }
 
 }
