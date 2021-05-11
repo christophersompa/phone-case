@@ -275,7 +275,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NameMaxLessOne()
@@ -289,7 +289,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NameMax()
@@ -303,7 +303,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NameMid()
@@ -317,7 +317,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NameMaxPlusOne()
@@ -331,7 +331,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NameExtremeMax()
@@ -374,7 +374,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PostCodeMinPlusOne()
@@ -388,7 +388,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PostCodeMaxLessOne()
@@ -402,7 +402,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PostCodeMax()
@@ -416,7 +416,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PostCodeMaxPlusOne()
@@ -471,7 +471,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AddressMinPlusOne()
@@ -485,7 +485,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AddressMaxLessOne()
@@ -500,7 +500,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void AddressMax()
@@ -543,7 +543,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
 
@@ -571,7 +571,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DoBMinLessOne()
@@ -611,7 +611,7 @@ namespace Testing3
             //invoke the method
             Error = AnStaff.Valid(Name, PostCode, Address, DoB);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DoBMinPlusOne()
